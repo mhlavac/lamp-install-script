@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+    ServerAlias *
+    UseCanonicalName Off
+    LogLevel debug
+    <Directory /var/www>
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Order allow,deny
+        Allow from all
+    </Directory>
+    VirtualDocumentRoot /var/www/%2/%1/web
+</VirtualHost>
