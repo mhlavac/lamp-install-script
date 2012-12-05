@@ -2,28 +2,18 @@
 
 # System wide
 echo "Installing system wide applications..."
-apt-get -y install ant curl git openssh-server etckeeper
+apt-get -y install ant curl git openssh-server
 
-# Etckeeper settings
-echo "Setting up etckeeper..."
-cp etckeeper.conf /etc/etckeeper/etckeeper.conf
-etckeeper init
-etckeeper commit "Initial commit"
+# Etckeeper
+plugins/etckeeper/script/00-install.sh
+plugins/etckeeper/script/20-config.sh
 
 # Apache 2
-apt-get install -y apache2 libapache2-mod-xsendfile apache2-mpm-itk
-a2enmod vhost_alias
-a2enmod rewrite
-a2enmod xsendfile
-
-a2dissite default
-a2dissite 000-default
-cp apache2/vhost /etc/apache2/sites-available/vhost
-a2ensite vhost
-service apache2 restart
+plugins/apache2/script/00-install.sh
+plugins/apache2/script/20-vhost.sh
 
 # PHP 5
-php5/script/php.sh
+plugins/php5/script/php.sh
 
 # Memcached
 apt-get install -y memcached
@@ -51,4 +41,4 @@ cp bash.bashrc ~/.bashrc
 cp bash.bashrc /etc/bash.bashrc
 
 # Jenkins
-jenkins/script/jenkins.sh
+plugins/jenkins/script/jenkins.sh

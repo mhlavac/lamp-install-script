@@ -10,6 +10,17 @@ BE AWARE
 
 I still work on this script and as such it can contain some bugs... Feel free to report issues, or request new features.
 
+Installation guide
+------------------
+
+You can install everything in few simple steps:
+
+``` sh
+wget -O lamp.tar.gz https://github.com/mhlavac/lamp-install-script/archive/master.tar.gz
+tar -xzf lamp.tar.gz
+lamp-install-script-master/install.sh
+```
+
 Login
 -----
 

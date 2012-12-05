@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # PHP5
 apt-get install -y php5 php5-curl php5-intl php5-mcrypt php5-memcache php5-memcached php5-mongo php5-mysqlnd php5-gd php5-xdebug php-apc phpunit
 
