@@ -8,15 +8,15 @@ echo "Installing system wide applications..."
 apt-get -y install ant curl git openssh-server unzip
 
 # Etckeeper
-$plugins/etckeeper/script/00-install.sh
-$plugins/etckeeper/script/20-config.sh
+$pluginsDirectory/etckeeper/script/00-install.sh
+$pluginsDirectory/etckeeper/script/20-config.sh
 
 # Apache 2
-$plugins/apache2/script/00-install.sh
-$plugins/apache2/script/20-vhost.sh
+$pluginsDirectory/apache2/script/00-install.sh
+$pluginsDirectory/apache2/script/20-vhost.sh
 
 # PHP 5
-$plugins/php5/script/php.sh
+$pluginsDirectory/php5/script/php.sh
 
 # Memcached
 apt-get install -y memcached
@@ -44,4 +44,4 @@ cp $baseDirectory/bash.bashrc ~/.bashrc
 cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
-$plugins/jenkins/script/jenkins.sh
+$pluginsDirectory/jenkins/script/jenkins.sh
