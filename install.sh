@@ -1,19 +1,22 @@
 #!/bin/sh
 
+baseDirectory=$(dirname $0)
+pluginsDirectory=$baseDirectory/plugins
+
 # System wide
 echo "Installing system wide applications..."
 apt-get -y install ant curl git openssh-server unzip
 
 # Etckeeper
-plugins/etckeeper/script/00-install.sh
-plugins/etckeeper/script/20-config.sh
+$plugins/etckeeper/script/00-install.sh
+$plugins/etckeeper/script/20-config.sh
 
 # Apache 2
-plugins/apache2/script/00-install.sh
-plugins/apache2/script/20-vhost.sh
+$plugins/apache2/script/00-install.sh
+$plugins/apache2/script/20-vhost.sh
 
 # PHP 5
-plugins/php5/script/php.sh
+$plugins/php5/script/php.sh
 
 # Memcached
 apt-get install -y memcached
@@ -37,8 +40,8 @@ apt-get install -y coffeescript ruby-compass
 
 # Setting bashrc
 echo "Setting bashrc..."
-cp bash.bashrc ~/.bashrc
-cp bash.bashrc /etc/bash.bashrc
+cp $baseDirectory/bash.bashrc ~/.bashrc
+cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
-plugins/jenkins/script/jenkins.sh
+$plugins/jenkins/script/jenkins.sh
