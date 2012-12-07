@@ -18,7 +18,7 @@ You can install everything in few simple steps:
 ``` sh
 wget -O lamp.tar.gz https://github.com/mhlavac/lamp-install-script/archive/master.tar.gz
 tar -xzf lamp.tar.gz
-lamp-install-script-master/install.sh
+sudo lamp-install-script-master/install.sh
 ```
 
 Login

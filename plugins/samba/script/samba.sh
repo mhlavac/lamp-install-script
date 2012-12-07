@@ -6,11 +6,13 @@
 # Thanks to article at Ubuntu Server Guide http://ubuntuserverguide.com/2012/06/install-samba-server-ubuntu-server-1204-lts.html
 # -------------------------------------------
 
+baseDirectory=$(dirname $0)
+
 echo "Installing samba..."
 apt-get install -y samba cifs-utils
 
 echo "Configuring samba..."
-cp ../config/smb.conf /etc/samba/smb.conf
+cp $baseDirectory/../config/smb.conf /etc/samba/smb.conf
 mkdir -p /srv/samba/share
 chown lamp.lamp /srv/samba/share
 

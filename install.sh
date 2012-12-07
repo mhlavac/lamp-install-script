@@ -2,7 +2,7 @@
 
 # System wide
 echo "Installing system wide applications..."
-apt-get -y install ant curl git openssh-server
+apt-get -y install ant curl git openssh-server unzip
 
 # Etckeeper
 plugins/etckeeper/script/00-install.sh
