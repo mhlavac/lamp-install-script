@@ -1,10 +1,16 @@
 #!/bin/sh
 
+if [ `id -u` -ne '0' ]; then
+  echo "This script must be run as root" >&2
+  exit 1
+fi
+
 baseDirectory=$(dirname $0)
 pluginsDirectory=$baseDirectory/plugins
 
 # System wide
 echo "Installing system wide applications..."
+command -v javac || apt-get -y openjdk-7-jdk
 apt-get -y install ant curl git openssh-server unzip
 
 # Etckeeper
@@ -27,7 +33,6 @@ apt-get install -y phpmyadmin
 
 # MongoDB
 apt-get install -y mongodb
-ln -s /etc/php5/mods-available/mongo.ini /etc/php5/conf.d/20-mongo.ini
 
 # RockMongo
 wget http://rockmongo.com/downloads/go?id=10 -O rockmongo.zip; unzip rockmongo.zip
