@@ -50,3 +50,9 @@ cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
 $pluginsDirectory/jenkins/script/jenkins.sh
+
+# iNotify tools
+apt-get install -y inotify-tools
+
+# DNS
+apt-get install -y bind9 dnsutils
