@@ -13,12 +13,10 @@ I still work on this script and as such it can contain some bugs... Feel free to
 Installation guide
 ------------------
 
-You can install everything in few simple steps:
+You can install everything in one simple step:
 
 ``` sh
-wget -O lamp.tar.gz https://github.com/mhlavac/lamp-install-script/archive/master.tar.gz
-tar -xzf lamp.tar.gz
-sudo lamp-install-script-master/install.sh
+curl https://raw.github.com/mhlavac/lamp-install-script/master/run.sh | sudo sh
 ```
 
 Login
