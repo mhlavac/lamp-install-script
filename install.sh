@@ -10,8 +10,8 @@ pluginsDirectory=$baseDirectory/plugins
 
 # System wide
 echo "Installing system wide applications..."
-command -v javac || apt-get -y openjdk-7-jdk
-apt-get -y install ant curl git openssh-server unzip
+command -v javac || apt-get install -y openjdk-7-jdk
+apt-get install -y ant curl git openssh-server unzip
 
 # Etckeeper
 $pluginsDirectory/etckeeper/script/00-install.sh
