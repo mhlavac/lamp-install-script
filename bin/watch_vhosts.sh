@@ -1,11 +1,13 @@
 #!/bin/sh
 
 create_domain () {
-#  echo "new domain: $1"
+  echo "Creating vhost for domain: $1"
 
+  # create public web & logs directories
   mkdir -p /var/www/$1/web
   mkdir -p /var/www/$1/logs
 
+  # create & enable vhost
   VHOST_SETTINGS="
 <VirtualHost *:80>
     ServerName $1
@@ -27,14 +29,30 @@ create_domain () {
   sleep 0.1
   service apache2 reload
 
-  # TODO add bind9
+  # create DNS record
+  ZONE_SETTINGS="
+// $1 start //
+zone \"$1\" {
+	type master;
+        file \"/etc/bind/db.local.dev\";
+};
+// $1 end //
+"
+  echo "$ZONE_SETTINGS" >> /etc/bind/named.conf.local
+  sleep 0.1
+  service bind9 reload
 }
 
 delete_domain () {
-#  echo "delete domain: $1"
+  echo "Removing vhost for domain: $1"
 
-  # remove bind9
+  # remove DNS record
+  sed "/\/\/ $domain start \/\//,/\/\/ $domain end \/\//d" /etc/bind/named.conf.local > /tmp/named.conf.local.tmp
+  mv /tmp/named.conf.local.tmp /etc/bind/named.conf.local
+  sleep 0.1
+  service bind9 reload
 
+  # disable & remove vhost
   a2dissite $1
   sleep 0.1
   service apache2 reload
