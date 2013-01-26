@@ -9,11 +9,18 @@ ln -s create_vhost.sh /usr/share/lamp/vhost_IN_MOVED_TO
 ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_DELETE
 ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM
 
+# for compatibility - in some implementations of incron ",IN_ISDIR" is appended to event name
+ln -s create_vhost.sh /usr/share/lamp/vhost_IN_CREATE,IN_ISDIR
+ln -s create_vhost.sh /usr/share/lamp/vhost_IN_MOVED_TO,IN_ISDIR
+ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_DELETE,IN_ISDIR
+ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
+
 # DNS
 apt-get install -y bind9 dnsutils
+cp $baseDirectory/../config/db.local.dev /etc/bind/
 
 # resolv.conf
-echo -e "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
+echo "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
 resolvconf -u
 
 # incron
