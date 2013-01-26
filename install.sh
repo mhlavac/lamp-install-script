@@ -36,8 +36,8 @@ apt-get install -y mongodb
 
 # RockMongo
 wget http://rockmongo.com/downloads/go?id=10 -O rockmongo.zip; unzip rockmongo.zip
-mkdir -p /var/www/lamp/mongo
-mv -T rockmongo /var/www/lamp/mongo/web
+mkdir -p /var/www/mongo.lamp
+mv -T rockmongo /var/www/mongo.lamp/web
 rm rockmongo.zip
 
 # Other utils
