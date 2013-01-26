@@ -5,18 +5,18 @@ if [ `id -u` -ne '0' ]; then
   exit 1
 fi
 
-repo="mhlavac/lamp-install-script"
+branch="master"
 if [ $# -gt 0 ]; then
-  repo=$1
+  branch=$1
 fi
 
-branch="master"
+repo="mhlavac/lamp-install-script"
 if [ $# -gt 1 ]; then
-  branch=$2
+  repo=$2
 fi
 
 if [ $# -gt 2 ]; then
-  echo "Usage: $0 [repository] [branch]" >&2
+  echo "Usage: $0 [branch] [repository]" >&2
   exit 1
 fi
 
