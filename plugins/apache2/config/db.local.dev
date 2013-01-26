@@ -10,5 +10,5 @@ $TTL    604800
                          604800 )       ; Negative Cache TTL
 ;
 @       IN      NS      localhost.
-@       IN      A       192.168.33.10
-*       IN      A       192.168.33.10
+@       IN      A       <ip>
+*       IN      A       <ip>

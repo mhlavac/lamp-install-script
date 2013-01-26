@@ -17,7 +17,9 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 
 # DNS
 apt-get install -y bind9 dnsutils
-cp $baseDirectory/../config/db.local.dev /etc/bind/
+ip=$(ifconfig | awk -F[:\ ] '/192.168/ {print $13;}')
+pattern="s/<ip>/$ip/g"
+sed $pattern $baseDirectory/../config/db.local.dev > /etc/bind/db.local.dev
 
 # resolv.conf
 echo "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
