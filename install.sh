@@ -19,7 +19,7 @@ $pluginsDirectory/etckeeper/script/20-config.sh
 
 # Apache 2
 $pluginsDirectory/apache2/script/00-install.sh
-$pluginsDirectory/apache2/script/20-vhost.sh
+$pluginsDirectory/apache2/script/20-vhosts.sh
 
 # PHP 5
 $pluginsDirectory/php5/script/php.sh
@@ -50,13 +50,3 @@ cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
 $pluginsDirectory/jenkins/script/jenkins.sh
-
-# iNotify tools
-apt-get install -y inotify-tools
-
-# DNS
-apt-get install -y bind9 dnsutils
-
-# resolv.conf
-echo -e "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
-resolvconf -u

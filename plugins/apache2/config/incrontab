@@ -1,0 +1,1 @@
+/var/www IN_CREATE,IN_DELETE,IN_MOVE,IN_ONLYDIR /usr/share/lamp/vhost_$% $#
