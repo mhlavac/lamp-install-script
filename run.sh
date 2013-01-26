@@ -16,7 +16,7 @@ if [ $# -gt 1 ]; then
 fi
 
 if [ $# -gt 2 ]; then
-  echo "Usage: $0 [branch] [repository]" >&2
+  echo "Usage: $0 [[<branch>] <repository>]" >&2
   exit 1
 fi
 
