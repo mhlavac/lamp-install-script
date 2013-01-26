@@ -56,3 +56,7 @@ apt-get install -y inotify-tools
 
 # DNS
 apt-get install -y bind9 dnsutils
+
+# resolv.conf
+echo -e "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
+resolvconf -u
