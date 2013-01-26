@@ -20,4 +20,4 @@ resolvconf -u
 apt-get install -y incron
 echo -e "\nroot" >> /etc/incron.allow
 incrontab $baseDirectory/../config/incrontab
-service incrontab reload
+service incron reload
