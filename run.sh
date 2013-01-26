@@ -21,7 +21,7 @@ if [ $# -gt 2 ]; then
 fi
 
 wget -O lamp.tar.gz https://github.com/$repo/archive/$branch.tar.gz
-tar -xzf lamp.tar.gz -D lamp-install-script
+tar -xzf lamp.tar.gz
 rm lamp.tar.gz
 mv lamp-install-script-* lamp-install-script
 lamp-install-script/install.sh
