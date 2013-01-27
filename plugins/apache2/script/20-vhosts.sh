@@ -17,7 +17,10 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 
 # DNS
 apt-get install -y bind9 dnsutils
-ip=$(ifconfig | awk -F[:\ ] '/192.168/ {print $13;}')
+ip=$(ifconfig | awk -F[:\ ] '/192.168/ {print $13;}' | tail -n 1)
+if [ "$ip" == "" ]; then
+  ip=$(ifconfig | awk -F[:\ ] '/inet addr:/ {print $13;}' | grep -vF 127.0.0.1 | tail -n 1)
+fi
 pattern="s/<ip>/$ip/g"
 sed $pattern $baseDirectory/../config/db.local.dev > /etc/bind/db.local.dev
 
