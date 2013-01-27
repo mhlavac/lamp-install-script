@@ -10,8 +10,8 @@ pluginsDirectory=$baseDirectory/plugins
 
 # System wide
 echo "Installing system wide applications..."
-command -v javac || apt-get -y openjdk-7-jdk
-apt-get -y install ant curl git openssh-server unzip
+command -v javac || apt-get install -y openjdk-7-jdk
+apt-get install -y ant curl git openssh-server unzip
 
 # Etckeeper
 $pluginsDirectory/etckeeper/script/00-install.sh
@@ -19,7 +19,7 @@ $pluginsDirectory/etckeeper/script/20-config.sh
 
 # Apache 2
 $pluginsDirectory/apache2/script/00-install.sh
-$pluginsDirectory/apache2/script/20-vhost.sh
+$pluginsDirectory/apache2/script/20-vhosts.sh
 
 # PHP 5
 $pluginsDirectory/php5/script/php.sh
@@ -36,8 +36,8 @@ apt-get install -y mongodb
 
 # RockMongo
 wget http://rockmongo.com/downloads/go?id=10 -O rockmongo.zip; unzip rockmongo.zip
-mkdir -p /var/www/lamp/mongo
-mv -T rockmongo /var/www/lamp/mongo/web
+mkdir -p /var/www/mongo.lamp
+mv -T rockmongo /var/www/mongo.lamp/web
 rm rockmongo.zip
 
 # Other utils
