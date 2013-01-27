@@ -1,17 +1,16 @@
-MHlavac symfony2 lamp
+MHlavac Symfony2 lamp
 =====================
 
-I use this script to setup my ubuntu workstation... it's LAMP with MySQL and Mongodb... it also does a nice Virtual Host trick how i can test lots of different domains on my workstation.
+Get started in minutes. Say no more to days of setting your programming environment and finding everything yourself.
 
-This script can be also used for virtual servers. If you don't believe already prepared virtual servers with PHP, MySQL and Mongo already preconfigures, you can use this script to create your own environment in minutes and you can be 100% sure that there is nothing that might harm you in future.
+This LAMP configuration allows you to install your working environment in few minutes. It's completely open source (MIT license), this means you can check what this
+installation does and you can see for yourself that it is not going to track your work in any way.
 
-BE AWARE
-========
-
-I still work on this script and as such it can contain some bugs... Feel free to report issues, or request new features.
+MHlavac Symfony2 LAMP is created in Virtual servers in mind and that should be your main platform where to use this scripts. You can still use it on your workstation,
+but check the plugins as it does few changes to `rc` in installation process to make the terminal little friendlier to new comers :-)
 
 Installation guide
-------------------
+==================
 
 You can install everything in one simple step:
 
@@ -19,38 +18,34 @@ You can install everything in one simple step:
 curl https://raw.github.com/mhlavac/lamp-install-script/master/run.sh | sudo sh
 ```
 
-Login
------
-
-username: **lamp**
-password: **lamp**
-
-You are in sudoers group... so don't worry and do anything you want ;-)
-
-How to create new domains
+How to create new project
 -------------------------
 
-It's really simple to create new domains and test them out. Just create directory with your domain in `/var/www` like this:
+How to create new project in LAMP? It's quite easy, it takes only one step and your site is up and you can start working.
 
 ``` sh
-mkdir -p /var/www/example/website/web
+mkdir -p /var/www/website.example/web
 ```
 
-Then create a index.html file containing *Hello on your website example* by using following command:
+In this command we created a `website.example` directory in `/var/www` directory. Any directory created in `/var/www` will automaticaly
+create a new *Apache2 Virtual Host* and new *Bind 9 zones settings* for this directory.
+
+That said, if you create `website.example` directory a new virtualhost on address webiste.example is created. You can access it in your browser
+via this URL address: `http://website.example`.
+
+Currently the website does not have any index page. To test it out you can simply create one with following command:
 
 ``` sh
 echo "Hello on your website example" > /var/www/example/website/web/index.html
 ```
 
-Lastly alter your hosts so you domain is accessible by following command:
+License
+=======
 
-``` sh
-sudo echo "127.0.0.1 website.example" >> /etc/hosts
-```
+This project is under MIT license, you can use it for free for any means. You can also alter it as you like ;-)
 
-You can now see the website in your browser by entering *http://webiste.example*
+Thank you
+=========
 
-What next
----------
-
-I am currently thinking about script which would create new webiste for you... Also i would love to create bind9 configuration which would take care about resolving your local domains for you.
+Lastly i want to thank you for reading to this point and for using my LAMP configuration. If you have any ideas or if you found any bugs please report
+them as issues on github.
