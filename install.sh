@@ -43,6 +43,9 @@ rm rockmongo.zip
 # Other utils
 apt-get install -y coffeescript ruby-compass
 
+# Webkit to PDF and Image
+$pluginsDirectory/wkhtmlto/script/00-install.sh
+
 # Setting bashrc
 echo "Setting bashrc..."
 cp $baseDirectory/bash.bashrc ~/.bashrc
