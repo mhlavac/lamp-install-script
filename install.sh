@@ -27,9 +27,8 @@ $pluginsDirectory/php5/script/php.sh
 # Memcached
 apt-get install -y memcached
 
-# MySQL
-apt-get install -y mysql-server
-apt-get install -y phpmyadmin
+# SQL
+$pluginsDirectory/sql/script/00-install.sh
 
 # MongoDB
 apt-get install -y mongodb
