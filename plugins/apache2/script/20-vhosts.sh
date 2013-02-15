@@ -7,7 +7,6 @@ cp $baseDirectory/../bin/* /usr/share/lamp/
 
 echo 'export PATH="$PATH:/usr/share/lamp"' > /etc/profile.d/99-lamp.sh
 chmod a+x /etc/profile.d/99-lamp.sh
-source /etc/profile # apply new PATH
 
 ln -s create_vhost.sh /usr/share/lamp/vhost_IN_CREATE
 ln -s create_vhost.sh /usr/share/lamp/vhost_IN_MOVED_TO
@@ -22,7 +21,7 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 
 # DNS
 apt-get install -y bind9 dnsutils
-bind9-ip-configure.sh
+/usr/share/lamp/bind9-ip-configure.sh
 
 # resolv.conf
 echo "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
