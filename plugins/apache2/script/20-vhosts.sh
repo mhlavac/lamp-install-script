@@ -21,7 +21,8 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 
 # DNS
 apt-get install -y bind9 dnsutils
-/usr/share/lamp/bind9-ip-configure.sh
+
+/usr/share/lamp/bind-views.sh
 
 # resolv.conf
 echo "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head
