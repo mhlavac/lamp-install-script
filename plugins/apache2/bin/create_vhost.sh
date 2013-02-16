@@ -5,6 +5,7 @@ if [ "$(id -u)" != "0" ]; then
   exit 1
 fi
 
+baseDirectory=`dirname $(readlink -f $0)`
 log=/var/log/watch_vhosts.log
 
 echo "Creating vhost for domain: $1" >> $log
@@ -35,15 +36,5 @@ a2ensite $1 >> $log 2>&1
 sleep 0.1
 service apache2 reload >> $log 2>&1
 
-# create DNS record
-ZONE_SETTINGS="
-// $1 start //
-zone \"$1\" {
-        type master;
-        file \"/etc/bind/db.local.dev\";
-};
-// $1 end //
-"
-echo "$ZONE_SETTINGS" >> /etc/bind/named.conf.local 2>> $log
-sleep 0.1
-service bind9 reload >> $log 2>&1
+# regenerate DNS record
+$baseDirectory/bind-views.sh >> $log 2>&1

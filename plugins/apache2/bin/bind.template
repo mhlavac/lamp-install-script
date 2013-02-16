@@ -1,0 +1,5 @@
+view "<dev>" {
+  match-destinations { <ip> <ip6> };
+  recursion yes;
+<zones>
+};
