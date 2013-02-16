@@ -6,9 +6,9 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 baseDirectory=`dirname $(readlink -f $0)`
-$log=/var/log/watch_vhosts.log
+log=/var/log/watch_vhosts.log
 
-if [ ! -f /etv/apache2/sites-available/$1 ]; then
+if [ ! -f /etc/apache2/sites-available/$1 ]; then
   echo "vhost for domain '$1' doesn't exist" >> $log
   exit 1
 fi
