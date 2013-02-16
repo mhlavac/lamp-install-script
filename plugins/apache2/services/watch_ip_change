@@ -39,10 +39,10 @@ stop() {
     exit 1
   fi
 
-  kill $(cat $pid_file) 2> /dev/null
+  kill $(cat $pid_file) > /dev/null 2>&1
   rm -f $pid_file
 
-  kill $(cat $monitor_pid_file) 2> /dev/null
+  kill $(cat $monitor_pid_file) > /dev/null 2>&1
   rm -f $monitor_pid_file
 
   rm -f $pipe
