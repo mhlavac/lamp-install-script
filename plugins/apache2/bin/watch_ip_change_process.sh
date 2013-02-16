@@ -6,7 +6,7 @@ while read line; do
     continue
   fi
   if [ $pid -ne 0 ]; then
-    kill $pid
+    kill $pid > /dev/null
   fi
   # waiting if there are more changes coming soon
   {
