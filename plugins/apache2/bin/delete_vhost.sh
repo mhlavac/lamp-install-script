@@ -9,13 +9,14 @@ baseDirectory=`dirname $(readlink -f $0)`
 $log=/var/log/watch_vhosts.log
 
 if [ ! -f /etv/apache2/sites-available/$1 ]; then
-  echo "vhost for domain '$1' doesn't exist" > $log
+  echo "vhost for domain '$1' doesn't exist" >> $log
   exit 1
 fi
 
 echo "Removing vhost for domain: $1" >> $log 2>&1
 
 # regenerate DNS record
+sleep 0.5
 $baseDirectory/bind-views.sh >> $log 2>&1
 
 # disable & remove vhost
