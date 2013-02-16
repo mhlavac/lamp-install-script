@@ -24,7 +24,6 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 # DNS
 apt-get install -y bind9 dnsutils
 
-/usr/share/lamp/bind-views.sh
 service watch_ip_change start
 update-rc.d watch_ip_change defaults
 
