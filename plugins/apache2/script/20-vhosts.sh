@@ -4,10 +4,9 @@ baseDirectory=$(dirname $0)
 
 mkdir -p /usr/share/lamp/
 cp $baseDirectory/../bin/* /usr/share/lamp/
-
 cp $baseDirectory/../services/* /etc/init.d/
 
-echo 'export PATH="$PATH:/usr/share/lamp"' > /etc/profile.d/99-lamp.sh
+echo 'export PATH="$PATH:/usr/share/lamp"' >> /etc/profile.d/99-lamp.sh
 chmod a+x /etc/profile.d/99-lamp.sh
 
 ln -s create_vhost.sh /usr/share/lamp/vhost_IN_CREATE
