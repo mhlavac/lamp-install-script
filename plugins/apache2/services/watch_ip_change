@@ -1,4 +1,4 @@
-#!/bin/sh
+kkk#!/bin/sh
 
 if [ `id -u` -ne '0' ]; then
   echo "This script must be run as root" >&2
@@ -8,24 +8,44 @@ fi
 log=/var/log/watch_ip_change.log
 monitor_pid_file=/run/watch_ip_change_monitor.pid
 pid_file=/run/watch_ip_change.pid
-pipe_file=/run/watch_ip_change.pipe
+pipe=/run/watch_ip_change.pipe
 
 start() {
-  mkfifo $pipe_file
+  if [ -e $pid_file ] || [ -e $monitor_pid_file ] || [ -e $pipe ]; then
+    echo "Already running" >&2
+    exit 1
+  fi
 
-  /usr/share/lamp/watch_ip_change_process.sh < $pipe >> $log 2>&1 &
-  pid=$!
-  echo $pid > $pid_file
+  mkfifo $pipe
 
-  ip monitor address < /dev/null > $pipe 2> /dev/null &
-  pid=$!
-  echo $pid > $monitor_pid_file
+  {
+    ip monitor address < /dev/null > $pipe 2> /dev/null &
+    pid=$!
+    echo $pid > $monitor_pid_file
+  } &
+
+  sleep 1
+
+  {
+    /usr/share/lamp/watch_ip_change_process.sh < $pipe >> $log 2>&1 &
+    pid=$!
+    echo $pid > $pid_file
+  } &
 }
 
 stop() {
-  kill $(cat $monitor_pid_file)
+  if [ ! -e $pid_file ] && [ ! -e $monitor_pid_file ] && [ ! -e $pipe ]; then
+    echo "Not running" >&2
+    exit 1
+  fi
+
   kill $(cat $pid_file)
-  rm $pipe
+  rm -f $pid_file
+
+  kill $(cat $monitor_pid_file)
+  rm -f $monitor_pid_file
+
+  rm -f $pipe
 }
 
 case "$1" in
@@ -45,3 +65,4 @@ case "$1" in
 esac
 
 exit 0
+

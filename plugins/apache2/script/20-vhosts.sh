@@ -5,6 +5,8 @@ baseDirectory=$(dirname $0)
 mkdir -p /usr/share/lamp/
 cp $baseDirectory/../bin/* /usr/share/lamp/
 
+cp $baseDirectory/../services/* /etc/init.d/
+
 echo 'export PATH="$PATH:/usr/share/lamp"' > /etc/profile.d/99-lamp.sh
 chmod a+x /etc/profile.d/99-lamp.sh
 
@@ -23,6 +25,8 @@ ln -s delete_vhost.sh /usr/share/lamp/vhost_IN_MOVED_FROM,IN_ISDIR
 apt-get install -y bind9 dnsutils
 
 /usr/share/lamp/bind-views.sh
+service watch_ip_change start
+update-rc.d watch_ip_change defaults
 
 # resolv.conf
 echo "\nnameserver 127.0.0.1" >> /etc/resolvconf/resolv.conf.d/head

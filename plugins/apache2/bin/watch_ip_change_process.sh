@@ -2,7 +2,7 @@
 
 pid=0
 while read line; do
-  if [ $(echo $line | grep -c 'inet') -eq 0 ];
+  if [ $(echo $line | grep -c 'inet') -eq 0 ]; then
     continue
   fi
   if [ $pid -ne 0 ]; then
