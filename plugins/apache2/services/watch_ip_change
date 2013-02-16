@@ -16,6 +16,8 @@ start() {
     exit 1
   fi
 
+  /usr/share/lamp/bind-views.sh >> $log 2>&1
+
   mkfifo $pipe
 
   {
