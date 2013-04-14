@@ -10,7 +10,7 @@ timezone=`find /usr/share/zoneinfo -type f | xargs md5sum | grep $(md5sum /etc/l
 
 # PHP5 - Settings
 echo "Setting up php5..."
-sed "s/^date.timezone.*$/date.timezone = $timezone/" $baseDirectory/../config/php5_apache2.ini > /etc/php5/apache2/php.ini
+sed "s/^date.timezone.*$/date.timezone = $timezone/" $baseDirectory/../config/apache2.ini > /etc/php5/apache2/php.ini
 rm /etc/php5/cli/php.ini
 ln -s /etc/php5/apache2/php.ini /etc/php5/cli/php.ini
 

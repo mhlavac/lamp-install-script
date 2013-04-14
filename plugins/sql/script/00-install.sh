@@ -10,17 +10,18 @@ baseDirectory=$(dirname $0)
 
 # MySQL
 echo "Installing mysql server..."
-debconf-set-selections <<< 'mysql-server- mysql-server/root_password password lamp'
-debconf-set-selections <<< 'mysql-server- mysql-server/root_password_again password lamp'
+echo 'mysql-server- mysql-server/root_password password lamp' | debconf-set-selections
+echo 'mysql-server- mysql-server/root_password_again password lamp' | debconf-set-selections
 apt-get install -y mysql-server
+echo "Mysql server installed."
 
 # phpMyAdmin
 echo "Installing phpmyadmin"
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/dbconfig-install boolean true'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/app-password-confirm password lamp'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/admin-pass password lamp'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/mysql/app-pass password lamp'
-debconf-set-selections <<< 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2'
+echo 'phpmyadmin phpmyadmin/dbconfig-install boolean true' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/app-password-confirm password lamp' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/admin-pass password lamp' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/mysql/app-pass password lamp' | debconf-set-selections
+echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
 apt-get install -y phpmyadmin
 mkdir /var/www/mysql.lamp
 rm -rf /var/www/mysql.lamp/web
@@ -34,6 +35,7 @@ service apache2 reload
 
 # automatic root login
 cp /etc/phpmyadmin/config.ing.php /etc/phpmyadmin/config.ing.php.old
-cp baseDirectory/../config/config.inc.php /etc/phpmyadmin/config.ing.php
+cp $baseDirectory/../config/config.inc.php /etc/phpmyadmin/config.ing.php
 
+echo "PhpMyAdmin installed."
 echo "You can start using phpmyadmin by entering http://mysql.lamp in your browser"
