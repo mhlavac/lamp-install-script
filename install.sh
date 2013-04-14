@@ -8,7 +8,7 @@ fi
 # Lamp user creation
 if ! id "lamp" > /dev/null 2>&1; then
     echo "Lamp user does not exist - Creating lamp user..."
-    echo -ne "lamp3\nlamp3\n\n\n\n\n\nY" | adduser -q lamp
+    echo -ne "lamp\nlamp\n\n\n\n\n\nY" | adduser -q lamp
     adduser lamp sudo
 fi
 
