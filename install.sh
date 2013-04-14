@@ -45,6 +45,9 @@ apt-get install -y coffeescript ruby-compass
 # Webkit to PDF and Image
 $pluginsDirectory/wkhtmlto/script/00-install.sh
 
+# Samba
+$pluginsDirectory/samba/script/00-install.sh
+
 # Setting bashrc
 echo "Setting bashrc..."
 cp $baseDirectory/bash.bashrc ~/.bashrc
