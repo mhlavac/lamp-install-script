@@ -8,6 +8,8 @@ fi
 baseDirectory=$(dirname $0)
 pluginsDirectory=$baseDirectory/plugins
 
+apt-get update --fix-missing
+
 # System wide
 echo "Installing system wide applications..."
 command -v javac || apt-get install -y openjdk-7-jdk
