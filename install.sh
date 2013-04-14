@@ -5,6 +5,13 @@ if [ `id -u` -ne '0' ]; then
   exit 1
 fi
 
+# Lamp user creation
+if ! id "lamp" > /dev/null 2>&1; then
+    echo "Lamp user does not exist - Creating lamp user..."
+    echo -ne "lamp3\nlamp3\n\n\n\n\n\nY" | adduser -q lamp
+    adduser lamp sudo
+fi
+
 baseDirectory=$(dirname $0)
 pluginsDirectory=$baseDirectory/plugins
 
