@@ -17,10 +17,11 @@ mkdir -p /srv/samba/share
 chown lamp.lamp /srv/samba/share
 
 echo "Adding lamp as samba user..."
-smbpasswd -a lamp
+echo -ne "lamp\nlamp" | smbpasswd -a -s lamp
 service smbd restart
 
 echo "You can now start using samba server by entering:"
 ipAddress=`ip -f inet addr show eth0 | grep inet | sed -r -e 's/[^0-9]+(([0-9]+(\.)*)+).+/\1/g'`
 echo '\\\\'$ipAddress'\'
 echo "You can add new files or directories in /srv/samba/share"
+echo "Login via user \"lamp\" and password \"lamp\""
