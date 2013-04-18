@@ -24,7 +24,9 @@ echo 'phpmyadmin phpmyadmin/mysql/app-pass password lamp' | debconf-set-selectio
 echo 'phpmyadmin phpmyadmin/reconfigure-webserver multiselect apache2' | debconf-set-selections
 apt-get install -y phpmyadmin
 mkdir /var/www/mysql.lamp
+sleep 0.5
 rm -rf /var/www/mysql.lamp/web
+
 ln -s /usr/share/phpmyadmin /var/www/mysql.lamp/web
 
 # disable /phpmyadmin aplias
@@ -34,8 +36,8 @@ rm /etc/phpmyadmin/apache.conf.old
 service apache2 reload
 
 # automatic root login
-cp /etc/phpmyadmin/config.ing.php /etc/phpmyadmin/config.ing.php.old
-cp $baseDirectory/../config/config.inc.php /etc/phpmyadmin/config.ing.php
+cp /etc/phpmyadmin/config.inc.php /etc/phpmyadmin/config.inc.php.old
+cp $baseDirectory/../config/config.inc.php /etc/phpmyadmin/config.inc.php
 
 echo "PhpMyAdmin installed."
 echo "You can start using phpmyadmin by entering http://mysql.lamp in your browser"
