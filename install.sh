@@ -59,7 +59,7 @@ $pluginsDirectory/samba/script/00-install.sh
 
 # Setting bashrc
 echo "Setting bashrc..."
-cp $baseDirectory/bash.bashrc ~/.bashrc
+cp $baseDirectory/bash.bashrc ~lamp/.bashrc
 cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
