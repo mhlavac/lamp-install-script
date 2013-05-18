@@ -1,3 +1,13 @@
+<?php
+    $projects = [];
+
+    foreach (new DirectoryIterator('/var/www') as $fileInfo) {
+        if (!$fileInfo->isDot() && $fileInfo->isDir()) {
+            $projects[] = $fileInfo->getFilename();
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,17 +18,12 @@
     <h1>Lamp's Projects</h1>
     <ul>
     <?php
-
-    foreach (scandir('/var/www') as $directoryName) {
-        if (0 === strpos($directoryName, '.')) {
-            continue;
+        foreach ($projects as $project) {
+            echo '<li><a href="http://' . $project . '">' . $project . '</li>';
         }
-
-        echo "<li><a href=\"http://$directoryName\">$directoryName</a></li>";
-    }
     ?>
     </ul>
 
-    <p>Create new directory in /var/www to create new project.</p>
+    <p>You can create new project by creating new directory in <strong>/var/www</strong>.</p>
 </body>
 </html>
