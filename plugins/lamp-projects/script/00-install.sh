@@ -9,6 +9,8 @@ fi
 echo "Creating projects.lamp..."
 baseDirectory=$(dirname $0)
 
-mkdir -p /var/www/projects.lamp/web
-cp $baseDirectory/../bin/index.php /var/www/projects.lamp/web
+destinationDirectory=/var/www/projects.lamp/web
+mkdir -p $destinationDirectory
+cp $baseDirectory/../bin/index.php $destinationDirectory
+chown -R lamp.lamp $destinationDirectory
 echo "projects.lamp created."
