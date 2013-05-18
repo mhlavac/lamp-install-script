@@ -13,6 +13,7 @@ echo "Creating vhost for domain: $1" >> $log
 # create public web & logs directories
 mkdir -p /var/www/$1/web >> $log 2>&1
 mkdir -p /var/www/$1/logs >> $log 2>&1
+chown -R lamp.lamp /var/www/$1
 
 # create & enable vhost
 VHOST_SETTINGS="
@@ -30,6 +31,7 @@ VHOST_SETTINGS="
     ErrorLog /var/www/$1/logs/error.log
     LogLevel debug
     CustomLog /var/www/$1/logs/access.log combined
+    AssignUserId lamp lamp
 </VirtualHost>"
 echo "$VHOST_SETTINGS" > /etc/apache2/sites-available/$1  2>> $log
 a2ensite $1 >> $log 2>&1
