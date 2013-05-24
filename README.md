@@ -39,6 +39,27 @@ Currently the website does not have any index page. To test it out you can simpl
 echo "Hello on your website example" > /var/www/example/website/web/index.html
 ```
 
+What is inside?
+===============
+
+* git
+* ant
+* Memcached
+* Apache2
+    * xsendfile
+    * mod_rewrite
+    * vhost_alias
+* Etckeeper
+* Jenkins
+* PHP 5
+    * composer
+* Samba
+* MySQL
+    * Phpmyadmin accesable at mysql.lamp
+* MongoDB
+    * Rockmongo accesable at mongo.lamp
+* wkhtmltopdf
+
 License
 =======
 
