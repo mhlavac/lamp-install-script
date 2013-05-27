@@ -13,6 +13,7 @@ if ! id "lamp" > /dev/null 2>&1; then
 fi
 
 echo "lamp" > /etc/hostname
+hostname lamp
 
 baseDirectory=$(dirname $0)
 pluginsDirectory=$baseDirectory/plugins
