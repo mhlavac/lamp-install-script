@@ -70,6 +70,7 @@ What is inside?
     * *ant* - Build tool
     * *Samba* - Share files with windows
     * *wkhtmltopdf* - Generates pdf from given url
+    * *postfix* - Sends emails
 
 License
 =======
