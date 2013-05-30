@@ -70,4 +70,7 @@ cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 $pluginsDirectory/jenkins/script/00-install.sh
 
 # Node.js
-$pluginsDirectory/nodejs/00-install.sh
+$pluginsDirectory/nodejs/script/00-install.sh
+
+# Postfix
+$pluginsDirectory/postfix/script/00-install.sh
