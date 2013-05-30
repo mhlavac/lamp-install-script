@@ -42,23 +42,30 @@ echo "Hello on your website example" > /var/www/example/website/web/index.html
 What is inside?
 ===============
 
-* git
-* ant
-* Memcached
-* Apache2
-    * xsendfile
-    * mod_rewrite
-    * vhost_alias
-* Etckeeper
-* Jenkins
-* PHP 5
+* *PHP 5.4.x*
     * composer
-* Samba
-* MySQL
-    * Phpmyadmin accesable at mysql.lamp
-* MongoDB
-    * Rockmongo accesable at mongo.lamp
-* wkhtmltopdf
+    * pear
+    * pecl
+* *Apache2*
+    * mod_rewrite - Nice urls example.com/<strong>something</strong>
+    * vhost_alias - More advanced virtualhost settings
+    * xsendfile - File provisioning (you can send your files through PHP with ease)
+* Code versioning
+    * *git*
+* Continuous integration
+    * Jenkins CI - Accesible at jenkins.lamp
+* Databases and caches
+    * *Memcached* - Fast key-value cache
+    * *MySQL* - SQL database
+        * phpmyadmin accesable at http://mysql.lamp
+    * *MongoDB* - Document database
+        * rockmongo accesable at http://mongo.lamp
+* System utilities
+    * *Etckeeper* - Backups your LAMP's system settings in local git
+    * *jdk7* - Java development kit (needed for jenkins ci)
+    * *ant* - Build tool
+    * *Samba* - Share files with windows
+    * *wkhtmltopdf* - Generates pdf from given url
 
 License
 =======
