@@ -46,6 +46,10 @@ What is inside?
     * composer
     * pear
     * pecl
+* *node.js*
+    * yeoman
+    * grunt (contrib-sass, contrib-coffee)
+    * bower
 * *Apache2*
     * mod_rewrite - Nice urls example.com/<strong>something</strong>
     * vhost_alias - More advanced virtualhost settings

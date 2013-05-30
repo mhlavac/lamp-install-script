@@ -68,3 +68,6 @@ cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
 $pluginsDirectory/jenkins/script/00-install.sh
+
+# Node.js
+$pluginsDirectory/nodejs/00-install.sh
