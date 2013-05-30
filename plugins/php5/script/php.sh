@@ -4,7 +4,7 @@ baseDirectory=$(dirname $0)
 
 # PHP5
 apt-get install -y php5 php5-curl php5-intl php5-mcrypt php5-memcache php5-memcached php5-mongo php5-mysqlnd php5-gd php5-xdebug php-apc phpunit phpunit-selenium
-php5enmod mongo
+php5enmod mongo php5-dev
 
 timezone=`find /usr/share/zoneinfo -type f | xargs md5sum | grep $(md5sum /etc/localtime | awk '{print $1};') | awk '{print $2};' | cut -c 21-`
 
