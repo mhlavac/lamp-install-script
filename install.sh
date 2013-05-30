@@ -12,6 +12,9 @@ if ! id "lamp" > /dev/null 2>&1; then
     adduser lamp sudo
 fi
 
+echo "lamp" > /etc/hostname
+hostname lamp
+
 baseDirectory=$(dirname $0)
 pluginsDirectory=$baseDirectory/plugins
 
@@ -29,6 +32,7 @@ $pluginsDirectory/etckeeper/script/20-config.sh
 # Apache 2
 $pluginsDirectory/apache2/script/00-install.sh
 $pluginsDirectory/apache2/script/20-vhosts.sh
+$pluginsDirectory/apache2/script/30-jenkins_virtual_host.sh
 
 # PHP 5
 $pluginsDirectory/php5/script/php.sh
@@ -63,4 +67,7 @@ cp $baseDirectory/bash.bashrc ~lamp/.bashrc
 cp $baseDirectory/bash.bashrc /etc/bash.bashrc
 
 # Jenkins
-$pluginsDirectory/jenkins/script/jenkins.sh
+$pluginsDirectory/jenkins/script/00-install.sh
+
+# Node.js
+$pluginsDirectory/nodejs/00-install.sh
