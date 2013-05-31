@@ -6,10 +6,10 @@ if [ `id -u` -ne '0' ]; then
     exit 1
 fi
 
-echo "Installind node.js"
+echo "Installing node.js..."
 add-apt-repository -y ppa:chris-lea/node.js
 apt-get update
-apt-get install nodejs
+apt-get install -y nodejs
 
 npm install -g yo grunt-cli bower
 npm install grunt-contrib-sass

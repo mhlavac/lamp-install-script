@@ -17,7 +17,7 @@ mkdir -p /srv/samba/share
 chown lamp.lamp /srv/samba/share
 
 echo "Adding lamp as samba user..."
-echo -ne "lamp\nlamp" | smbpasswd -a -s lamp
+(echo "lamp"; echo "lamp") | smbpasswd -a -s lamp
 service smbd restart
 
 echo "You can now start using samba server by entering:"

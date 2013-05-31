@@ -8,7 +8,7 @@ fi
 # Lamp user creation
 if ! id "lamp" > /dev/null 2>&1; then
     echo "Lamp user does not exist - Creating lamp user..."
-    echo -ne "lamp\nlamp\n\n\n\n\n\nY" | adduser -q lamp
+    (echo "lamp"; echo "lamp"; echo ""; echo ""; echo ""; echo ""; echo ""; echo ""; echo "Y") | adduser -q lamp
     adduser lamp sudo
 fi
 
@@ -74,3 +74,6 @@ $pluginsDirectory/nodejs/script/00-install.sh
 
 # Postfix
 $pluginsDirectory/postfix/script/00-install.sh
+
+# Lamp projects
+$pluginsDirectory/lamp-projects/script/00-install.sh

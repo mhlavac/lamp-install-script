@@ -47,6 +47,7 @@ What is inside?
     * pear
     * pecl
 * *node.js*
+    * npm
     * yeoman
     * grunt (contrib-sass, contrib-coffee)
     * bower
