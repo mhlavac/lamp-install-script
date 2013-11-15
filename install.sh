@@ -61,6 +61,9 @@ $pluginsDirectory/wkhtmlto/script/00-install.sh
 # Samba
 $pluginsDirectory/samba/script/00-install.sh
 
+# Gradle
+$pluginsDirectory/gradle/script/00-install.sh
+
 # Setting bashrc
 echo "Setting bashrc..."
 cp $baseDirectory/bash.bashrc ~lamp/.bashrc
