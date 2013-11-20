@@ -65,10 +65,12 @@ What is inside?
         * phpmyadmin accesable at http://mysql.lamp
     * *MongoDB* - Document database
         * rockmongo accesable at http://mongo.lamp
+* Build tools
+    * *ant*
+    * *gradle*
 * System utilities
     * *Etckeeper* - Backups your LAMP's system settings in local git
     * *jdk7* - Java development kit (needed for jenkins ci)
-    * *ant* - Build tool
     * *Samba* - Share files with windows
     * *wkhtmltopdf* - Generates pdf from given url
     * *postfix* - Sends emails
