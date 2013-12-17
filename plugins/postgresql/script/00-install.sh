@@ -17,7 +17,7 @@ echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt
 wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | sudo apt-key add -
 apt-get update
 apt-get install -y postgresql-9.3 phppgadmin
-echo "alter user postgres password 'lamp';" | psql
+echo "alter user postgres password 'lamp';" | sudo -u postgres psql
 
 # Only for workspace installation
 # pgadmin3
