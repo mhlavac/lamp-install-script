@@ -8,7 +8,9 @@ fi
 # Locales fix
 
 echo "LANGUAGE=en_US.UTF-8" >> /etc/default/locale
+export LANGUAGE=en_US.UTF-8
 echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
+export LC_ALL=en_US.UTF-8
 
 # Lamp user creation
 if ! id "lamp" > /dev/null 2>&1; then
