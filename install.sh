@@ -5,6 +5,11 @@ if [ `id -u` -ne '0' ]; then
   exit 1
 fi
 
+# Locales fix
+
+echo "LANGUAGE=en_US.UTF-8" >> /etc/default/locale
+echo "LC_ALL=en_US.UTF-8" >> /etc/default/locale
+
 # Lamp user creation
 if ! id "lamp" > /dev/null 2>&1; then
     echo "Lamp user does not exist - Creating lamp user..."
