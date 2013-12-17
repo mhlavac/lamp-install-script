@@ -31,7 +31,7 @@ for dev in $(ifconfig | grep -E '^[^ ]' | awk '{print $1;}'); do
 
   zones=""
   for dir in $(find /etc/apache2/sites-enabled/* -maxdepth 0); do
-    domain=$(basename $dir)
+    domain=$(basename $dir | sed -e 's/\.conf$//g')
     zones="${zones}\\n  zone \\\"$domain\\\" { type master; file \\\"\\/etc\\/bind\\/db.local.dev.$dev\\\"; };"
   done
 
