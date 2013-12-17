@@ -1,13 +1,14 @@
-MHlavac Symfony2 lamp
-=====================
+MHlavac Symfony2 Ubuntu 13.10 LAMP
+==================================
 
 Get started in minutes. Say no more to days of setting your programming environment and finding everything yourself.
 
 This LAMP configuration allows you to install your working environment in few minutes. It's completely open source (MIT license), this means you can check what this
 installation does and you can see for yourself that it is not going to track your work in any way.
 
-MHlavac Symfony2 LAMP is created in Virtual servers in mind and that should be your main platform where to use this scripts. You can still use it on your workstation,
-but check the plugins as it does few changes to `rc` in installation process to make the terminal little friendlier to new comers :-)
+MHlavac Symfony2 LAMP is created with Virtual servers in mind and that should be your main platform where to use this script.
+
+You can still use it on your workstation, but you should use plugins separately to change only parts of your system.
 
 Installation guide
 ==================
@@ -21,7 +22,7 @@ curl https://raw.github.com/mhlavac/lamp-install-script/master/run.sh | sudo sh
 How to create new project
 -------------------------
 
-How to create new project in LAMP? It's quite easy, it takes only one step and your site is up and you can start working.
+How to create new project in LAMP? It's just one step and you can start working.
 
 ``` sh
 mkdir -p /var/www/website.example/web
@@ -42,7 +43,7 @@ echo "Hello on your website example" > /var/www/example/website/web/index.html
 What is inside?
 ===============
 
-* *PHP 5.4.x*
+* *PHP 5.5.x*
     * composer
     * pear
     * pecl
@@ -63,6 +64,7 @@ What is inside?
     * *Memcached* - Fast key-value cache
     * *MySQL* - SQL database
         * phpmyadmin accesable at http://mysql.lamp
+    * *PostgreSQL* - SQL database
     * *MongoDB* - Document database
         * rockmongo accesable at http://mongo.lamp
 * Build tools

@@ -38,6 +38,7 @@ service apache2 reload
 # automatic root login
 cp /etc/phpmyadmin/config.inc.php /etc/phpmyadmin/config.inc.php.old
 cp $baseDirectory/../config/config.inc.php /etc/phpmyadmin/config.inc.php
+chown lamp.lamp /etc/phpmyadmin/config.inc.php # domain mysql.lamp is executed as lamp user
 
 echo "PhpMyAdmin installed."
 echo "You can start using phpmyadmin by entering http://mysql.lamp in your browser"

@@ -6,11 +6,6 @@ if [ `id -u` -ne '0' ]; then
   exit 1
 fi
 
-curl http://services.gradle.org/distributions/gradle-1.6-bin.zip > gradle.zip
-unzip gradle.zip
-rm gradle.zip
-mv gradle-1.6 /usr/local/lib/gradle
-
-echo 'export GRADLE_HOME=/usr/local/lib/gradle' > /etc/profile.d/90-gradle.sh
-echo 'export PATH=$PATH:$GRADLE_HOME/bin' >> /etc/profile.d/90-gradle.sh
-chmod 755 /etc/profile.d/90-gradle.sh
+add-apt-repository -y ppa:cwchien/gradle
+apt-get update
+apt-get install gradle-1.9

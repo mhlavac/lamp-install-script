@@ -33,7 +33,7 @@ VHOST_SETTINGS="
     CustomLog /var/www/$1/logs/access.log combined
     AssignUserId lamp lamp
 </VirtualHost>"
-echo "$VHOST_SETTINGS" > /etc/apache2/sites-available/$1  2>> $log
+echo "$VHOST_SETTINGS" > /etc/apache2/sites-available/$1.conf 2>> $log
 a2ensite $1 >> $log 2>&1
 sleep 0.1
 service apache2 reload >> $log 2>&1
