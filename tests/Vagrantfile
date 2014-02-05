@@ -1,0 +1,9 @@
+Vagrant::Config.run do |config|
+    config.vm.box = "ubuntu_server_12_10"
+    config.vm.box_url = "http://cloud-images.ubuntu.com/quantal/current/quantal-server-cloudimg-vagrant-i386-disk1.box"
+    # config.vm.boot_mode = :gui
+    config.vm.network :hostonly, "192.168.201.100"
+    config.vm.network :bridged, :bridge => "eth0"
+    config.vm.share_folder("v-root", "/vagrant", ".", :nfs => true)
+    config.vm.provision :shell, :path => "install.sh"
+end
