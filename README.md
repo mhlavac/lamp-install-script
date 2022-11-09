@@ -1,3 +1,5 @@
+This project is archived. Massive progress was done in containarization since the lamp install script was created. I highly encourage checking out Docker and how to run applications in containerized environment. [PHP: The Right Way](https://phptherightway.com/#docker_title) is a great resource to get started.
+
 MHlavac Symfony2 lamp
 =====================
 
